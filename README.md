@@ -16,7 +16,11 @@ import PerfectSchema from '@perfect-schema/base';
 import trackerPlugin from '@perfect-schema/tracker';
 import { Tracker } from 'meteor/tracker';
 
-
+/**
+ * Manually setting Tracker to PerfectSchema
+ * allows providing custom implementations and
+ * prevent unnecessary dependencies
+ */
 PerfectSchema.Tracker = Tracker;
 PerfectSchema.use(trackerPlugin);
 
@@ -29,8 +33,8 @@ const baseSchema = new PerfectSchema({
 const schema = new PerfectSchema({
   foo: {
     type: String,
-    min: 10,
-    max: 20
+    minLength: 10,
+    maxLength: 20
   }
 });
 

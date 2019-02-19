@@ -5,7 +5,7 @@ class TrackerPlugin {
     this.PerfectSchema = PerfectSchema;
   }
 
-  extendContext(context, schema) {
+  extendContext(context) {
     if (this.PerfectSchema.Tracker) {
       const dependency = new this.PerfectSchema.Tracker.Dependency();
       const _isValid = context.isValid.bind(context);
@@ -48,6 +48,7 @@ class TrackerPlugin {
         }
       });
     } else {
+      /*eslint no-console: ["error", { allow: ["warn"]}] */
       console.warn('PerfectSchema.Tracker not set');
     }
 
